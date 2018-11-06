@@ -3,18 +3,13 @@
 #
 # Create by Meibenjin.
 #
-# Last updated: 2013-04-02
+# Last updated: 2018-11-06 by huuphu310
 #
 # google search results crawler
 
 import sys
-# reload(sys)
-# sys.setdefaultencoding('utf-8')
-
 import urllib.request, urllib.error, socket, time
-import gzip
 import re, random, types
-from io import StringIO
 from bs4 import BeautifulSoup
 import zlib
 
@@ -32,11 +27,13 @@ def cmp(x, y):
     else:
         return 0
 
-    # extract the domain of a url
-def extractDomain( url):
+
+# extract the domain of a url
+def extractDomain(url):
     pattern = r'http[s]?://[^&]+' + keyword
     domain = re.compile(pattern.rstrip(), re.U | re.M).search(url).group()
     return domain
+
 
 # results from the search engine
 # basically include url, title,content
@@ -65,14 +62,13 @@ class SearchResult:
         self.content = content
 
     def printIt(self, prefix=''):
-        # print('url\t->', self.url
-        # print('title\t->', self.title
-        # print('content\t->', self.content
-        print(self.url)
+        print('url\t->', self.url)
+        print('title\t->', self.title)
+        print('content\t->', self.content)
 
     def writeFile(self, filename):
         file = open(filename, 'a')
-        url =  extractDomain(self.url)
+        url = extractDomain(self.url)
         try:
             file.write(str(url) + '/\n')
             # file.write('title:' + self.title + '\n')
