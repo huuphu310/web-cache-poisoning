@@ -9,7 +9,7 @@
 
 import sys
 import urllib.request, urllib.error, socket, time
-import re, random, types
+import re, random
 from bs4 import BeautifulSoup
 import zlib
 
@@ -200,7 +200,7 @@ def crawler():
     api = GoogleAPI()
 
     # set expect search results to be crawled
-    expect_num = 10
+    expect_num = 25
     # if no parameters, read query keywords from file
     if (len(sys.argv) < 2):
         keywords = open('./keywords', 'r')
