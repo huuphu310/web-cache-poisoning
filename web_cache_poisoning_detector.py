@@ -1,6 +1,7 @@
 import random
 import string
-from pip._vendor import requests
+import requests
+
 
 def _random_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
